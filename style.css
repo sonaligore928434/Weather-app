@@ -1,0 +1,130 @@
+
+    :root {
+      --bg: #0b1020;
+      --card: #121831;
+      --text: #e9ecf1;
+      --muted: #a7b0c0;
+      --accent: #6ea8ff;
+      --danger: #ff6b6b;
+      --success: #7dd87d;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, #1a2143 0%, var(--bg) 55%),
+                  radial-gradient(1000px 700px at 120% 110%, #0f1330 0%, var(--bg) 70%);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .app {
+      width: min(880px, 100%);
+    }
+    .header {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 3.5vw, 32px);
+      letter-spacing: .3px;
+    }
+    .search {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      background: rgba(255,255,255,.04);
+      padding: 12px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .search input {
+      width: 100%;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      font-size: 16px;
+    }
+    .btn {
+      background: linear-gradient(180deg, #7aa6ff, var(--accent));
+      color: #07122b;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .08s ease, filter .2s ease;
+      box-shadow: 0 6px 16px rgba(110,168,255,.35);
+      white-space: nowrap;
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .btn:active { transform: translateY(1px) scale(.99); }
+    .btn.secondary {
+      background: #1b2346;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+    }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .search { grid-template-columns: 1fr 1fr; }
+      .search .btn.query { grid-column: span 2; }
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .muted { color: var(--muted); }
+    .temp {
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .sub { font-size: 14px; color: var(--muted); }
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 12px;
+    }
+
+    .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .kv { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 12px; }
+    .kv .k { font-size: 12px; color: var(--muted); }
+    .kv .v { font-size: 16px; font-weight: 700; }
+
+    .alerts { display: grid; gap: 10px; }
+    .alert { border-left: 4px solid var(--danger); background: #2a1420; border-radius: 10px; padding: 10px 12px; }
+    .alert .name { font-weight: 700; }
+
+    .footer { margin-top: 14px; font-size: 12px; color: var(--muted); text-align: center; }
+    .hidden { display: none !important; }
+    .center { text-align: center; }
+    .spinner { width: 20px; height: 20px; border-radius: 50%; border: 3px solid rgba(255,255,255,.2); border-top-color: var(--accent); animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+ 
